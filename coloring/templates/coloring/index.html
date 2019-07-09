@@ -57,17 +57,47 @@
 
 			// your rectangle gradient interaction goes in this function
 			// you may also add code outside of the function (e.g., global variables)
-			function myGradientInteraction(){
-				var tool = new paper.Tool();
+  function myGradientInteraction(){
 
-				tool.onMouseDown = function (event) {
-
-				}
-
-				tool.onMouseUp = function (event) {
-					
-				}
-			}
+    // Create a Paper.js path to draw a triangle into it
+    var tool = new paper.Tool();
+    var rect = new paper.Path.Rectangle({size: new paper.Size(400, 300), center: paper.view.center, fillColor: 'red'});
+    tool.onMouseDown = function (event) {
+      var destination;
+      
+      var origin;
+      
+      var first;
+      
+      var second;
+      
+      tool.onMouseUp = function (event) {
+        origin = event.downPoint;
+        
+        destination = event.point;
+        
+        second = cp.history[cp.history.length - 2];
+        
+        first = cp.history[cp.history.length - 1];
+        
+        rect.fillColor = {
+          gradient: {
+            stops: [first, second]
+          },
+          origin: origin,
+          destination: destination
+        }
+      }
+    }
+          
+          
+          
+   }
+      
+      
+      
+      
+      
 
 			// your custom interaction goes here!
 			// you may replace everything
