@@ -57,11 +57,49 @@
 
 			// your rectangle gradient interaction goes in this function
 			// you may also add code outside of the function (e.g., global variables)
-  function myGradientInteraction(){
+      //Un-comment this when you get gradient circle down
+//   function myGradientInteraction(){
 
+//     // Create a Paper.js path to draw a triangle into it
+//     var tool = new paper.Tool();
+//     var rect = new paper.Path.Rectangle({size: new paper.Size(400, 300), center: paper.view.center, fillColor: 'red'});
+//     tool.onMouseDown = function (event) {
+//       var destination;
+      
+//       var origin;
+      
+//       var first;
+      
+//       var second;
+      
+//       tool.onMouseUp = function (event) {
+//         origin = event.downPoint;
+        
+//         destination = event.point;
+        
+//         second = cp.history[cp.history.length - 2];
+        
+//         first = cp.history[cp.history.length - 1];
+        
+//         rect.fillColor = {
+//           gradient: {
+//             stops: [first, second]
+//           },
+//           origin: origin,
+//           destination: destination
+//         }
+//       }
+//     }
+       
+//    }
+      
+  function myGradientInteraction(){
     // Create a Paper.js path to draw a triangle into it
     var tool = new paper.Tool();
-    var rect = new paper.Path.Rectangle({size: new paper.Size(400, 300), center: paper.view.center, fillColor: 'red'});
+    var rect = new Path.Circle({
+        center: [80, 50],
+        radius: 30,
+        strokeColor: 'black'});    
     tool.onMouseDown = function (event) {
       var destination;
       
@@ -89,9 +127,7 @@
         }
       }
     }
-          
-          
-          
+       
    }
       
       
